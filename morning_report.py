@@ -190,21 +190,73 @@ def send_gmail(report_path: Path, report_text: str) -> None:
         print("Gmail設定が未入力のため、メール送信をスキップしました。")
         return
 
-    msg = EmailMessage()
+    # --- 簡易サマリー抽出 ---
+    lines = report_text.split("\n")
+
+    top3 = []
+    actions = []
+    manuf = []
+    web = []
+
+    mode = None
+    for line in lines:
+        if "今日いちばん重要な3件" in line:
+            mode = "top3"
+            continue
+        elif "今日試すこと" in line:
+            mode = "actions"
+            continue
+        elif "製造業・現場への示唆" in line:
+            mode = "manuf"
+            continue
+        elif "Webアプリ化のヒント" in line:
+            mode = "web"
+            continue
+
+        if mode == "top3" and line.strip().startswith("-"):
+            top3.append(line.strip("- ").strip())
+        elif mode == "actions" and line.strip().startswith("-"):
+            actions.append(line.strip("- ").strip())
+        elif mode == "manuf" and line.strip():
+            manuf.append(line.strip())
+        elif mode == "web" and line.strip():
+            web.append(line.strip())
+
     today = dt.datetime.now().strftime("%Y-%m-%d")
+
+    summary = f"""
+【朝レポート】{today}
+
+■ 今日の重要3件
+{chr(10).join(top3[:3])}
+
+--------------------------------
+
+■ 今日やること
+{chr(10).join(actions[:3])}
+
+--------------------------------
+
+■ 製造業へのヒント
+{chr(10).join(manuf[:3])}
+
+--------------------------------
+
+■ Webアプリ化ヒント
+{chr(10).join(web[:3])}
+
+--------------------------------
+
+※詳細は下に続きます
+
+{report_text}
+"""
+
+    msg = EmailMessage()
     msg["Subject"] = f"朝レポート {today}"
     msg["From"] = gmail_from
     msg["To"] = gmail_to
-
-    body = f"""朝レポートを送ります。
-
-保存ファイル:
-{report_path}
-
---- 本文 ---
-{report_text}
-"""
-    msg.set_content(body)
+    msg.set_content(summary)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
         server.login(gmail_from, gmail_app_password)

@@ -1,0 +1,40 @@
+{
+  "topics": [
+    {
+      "name": "ChatGPTが中小企業の業務で使われているトピック",
+      "role": "中小企業向けAI営業・コンサルタント",
+      "feeds": [
+        "https://openai.com/news/rss.xml",
+        "https://feeds.feedburner.com/oreilly/radar",
+        "https://www.itmedia.co.jp/news/subtop/features/ai/rss.xml"
+      ]
+    },
+    {
+      "name": "ChatGPTが製造業（特に金属加工・組立工程）で使われているトピック",
+      "role": "中小企業向けAI営業・コンサルタント",
+      "feeds": [
+        "https://news.mynavi.jp/rss/enterprise/technology",
+        "https://feeds.feedburner.com/automationworld",
+        "https://www.plantengineering.com/feed/"
+      ]
+    },
+    {
+      "name": "製造業（特に金属加工・組立工程）でWebアプリを現場向けに造っている情報",
+      "role": "中小企業向けAI営業・コンサルタント",
+      "feeds": [
+        "https://www.monodzukuri.com/rss",
+        "https://www.techrepublic.com/rssfeeds/articles/",
+        "https://www.infoq.com/feed/"
+      ]
+    },
+    {
+      "name": "MacBook Air関連でAIを利用しているトピック",
+      "role": "普通の社会人。ただし、Webアプリ開発を趣味で楽しんでいる人",
+      "feeds": [
+        "https://www.macrumors.com/macbook-air/feed/",
+        "https://9to5mac.com/guides/macbook-air/feed/",
+        "https://openai.com/news/rss.xml"
+      ]
+    }
+  ]
+}

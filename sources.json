@@ -5,26 +5,26 @@
       "role": "中小企業向けAI営業・コンサルタント",
       "feeds": [
         "https://openai.com/news/rss.xml",
-        "https://feeds.feedburner.com/oreilly/radar",
-        "https://www.itmedia.co.jp/news/subtop/features/ai/rss.xml"
+        "https://www.itmedia.co.jp/news/subtop/features/ai/rss.xml",
+        "https://www.infoq.com/feed/"
       ]
     },
     {
       "name": "ChatGPTが製造業（特に金属加工・組立工程）で使われているトピック",
       "role": "中小企業向けAI営業・コンサルタント",
       "feeds": [
-        "https://news.mynavi.jp/rss/enterprise/technology",
+        "https://www.plantengineering.com/feed/",
         "https://feeds.feedburner.com/automationworld",
-        "https://www.plantengineering.com/feed/"
+        "https://www.manufacturing.net/rss"
       ]
     },
     {
       "name": "製造業（特に金属加工・組立工程）でWebアプリを現場向けに造っている情報",
       "role": "中小企業向けAI営業・コンサルタント",
       "feeds": [
-        "https://www.monodzukuri.com/rss",
+        "https://www.infoq.com/feed/",
         "https://www.techrepublic.com/rssfeeds/articles/",
-        "https://www.infoq.com/feed/"
+        "https://martinfowler.com/feed.atom"
       ]
     },
     {
